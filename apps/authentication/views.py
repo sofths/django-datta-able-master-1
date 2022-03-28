@@ -43,7 +43,7 @@ def register_user(request):
             username = form.cleaned_data.get("username")
             company = form.cleaned_data.get("company")
             raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password,company=company)
+            user = authenticate(username=username, password=raw_password, company=company)
 
             msg = 'User created - please <a href="/login">login</a>.'
             success = True
