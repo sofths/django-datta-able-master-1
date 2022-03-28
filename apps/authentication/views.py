@@ -19,6 +19,7 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
+            
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
@@ -40,8 +41,9 @@ def register_user(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
+            company = form.cleaned_data.get("company")
             raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+            user = authenticate(username=username, password=raw_password,company=company)
 
             msg = 'User created - please <a href="/login">login</a>.'
             success = True

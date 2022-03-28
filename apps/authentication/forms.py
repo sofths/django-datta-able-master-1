@@ -33,6 +33,13 @@ class SignUpForm(UserCreationForm):
                 "class": "form-control"
             }
         ))
+    company = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Company",
+                "class": "form-control"
+            }
+        ))
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
